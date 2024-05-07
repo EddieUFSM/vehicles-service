@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "vehicle rest api",
   "main": "src",
+  "type": "module",
   "scripts": {
     "start": "node .",
-    "test": "test",
+    "test": "mocha",
     "coverage": "npm test -- --coverage",
     "postcoverage": "open-cli coverage/lcov-report/index.html",
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md",
     "postdocs": "open-cli docs/index.html",
     "dev": "nodemon -i \"*.test.js\" .",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "vehicle",
@@ -28,6 +30,7 @@
     "apidoc-markdown": "^7.0.4",
     "eslint": "^8.57.0",
     "globals": "^15.1.0",
+    "mocha": "^10.4.0",
     "open-cli": "^8.0.0"
   },
   "dependencies": {

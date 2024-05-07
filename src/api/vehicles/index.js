@@ -3,7 +3,7 @@ import { create, update, find, findOne, remove } from './controller'
 import { schema } from './model'
 import Vehicle from './model'
 
-const { id } = Vehicle.schema.tree
+const { placa, chassi, renavam, modelo, marca, ano } = Vehicle.schema.tree
 
 const router = new Router()
 
@@ -41,10 +41,11 @@ router.get('/:id', findOne)
  * @apiName GetVehicles
  * @apiGroup Vehicle
  *
+ * @apiQuery {Number} limit limit of array length
+ * @apiQuery {Number} offset pagination of
  * @apiSuccess {Object[]} vehicles List of vehicles
  */
 router.get('/', find)
-
 
 /**
  * @api {patch} /vehicles/:id Update a vehicle

@@ -13,10 +13,10 @@ if (config.mongo.uri) {
 mongoose.Promise = Promise
 
 setImmediate(() => {
-    server.listen(config.port, config.ip, () => {
-      console.log('Express server listening on http://%s:%d, in %s mode', config.ip, config.port, config.env)
-    })
+  server.listen(config.port, config.ip, () => {
+    console.log('Express server listening on http://%s:%d, in %s mode', config.ip, config.port, config.env)
   })
+})
   
-  export default app
+export default app
   

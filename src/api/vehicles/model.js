@@ -26,14 +26,14 @@ const vehicleSchema = new Schema({
     require: true
   },
 }, {
-    toJSON: {
-      virtuals: true,
-      transform: (obj, ret) => { delete ret._id }
-    }
+  toJSON: {
+    virtuals: true,
+    transform: (obj, ret) => { delete ret._id }
+  }
 })
 
 vehicleSchema.methods = {
-    view(full){}
+  view(full){}
 }
 
 const model = mongoose.model('Vehicle', vehicleSchema)

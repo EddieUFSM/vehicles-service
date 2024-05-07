@@ -88,6 +88,13 @@ GET /vehicles/:id
 ```
 GET /vehicles
 ```
+
+### Query Parameters
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| limit |  |  |
+| offset |  |  |
 ### Success response
 
 #### Success response - `Success 200`
