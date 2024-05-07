@@ -1,8 +1,12 @@
+import { fileURLToPath } from 'url'
 import path from 'path'
+import { dirname } from 'path'
+import dotenv from 'dotenv-safe'
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 /* istanbul ignore next */
 if (process.env.NODE_ENV !== 'production') {
-  const dotenv = require('dotenv-safe')
   dotenv.config({
     path: path.join(__dirname, '../.env'),
     example: path.join(__dirname, '../.env.example')

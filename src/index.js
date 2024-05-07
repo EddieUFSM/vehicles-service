@@ -1,3 +1,4 @@
-require('@babel/register')
+import '@babel/register'
+import app from './app.js'
 
-exports = module.exports = require('./app')
+export default app

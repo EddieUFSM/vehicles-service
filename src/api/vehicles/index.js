@@ -1,7 +1,8 @@
 import { Router } from 'express'
-import { create, update, find, findOne, remove } from './controller'
-import { schema } from './model'
-import Vehicle from './model'
+import { create, update, find, findOne, remove } from './controller.js'
+import { schema } from './model.js'
+import Vehicle from './model.js'
+import sanitizer from '../../services/sanitizer/index.js'
 
 const { placa, chassi, renavam, modelo, marca, ano } = Vehicle.schema.tree
 
@@ -21,7 +22,7 @@ const router = new Router()
  *
  * @apiSuccess {Object} vehicle Created vehicle object
  */
-router.post('/', create)
+router.post('/', sanitizer({placa, chassi, renavam, modelo, marca, ano}), create)
 
 
 /**

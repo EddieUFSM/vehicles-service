@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import compression from 'compression'
 import bodyParser from 'body-parser'
-import config from '../../config'
+import config from '../../config.js'
 
 export default (apiRoot, routes) => {
   const app = express()

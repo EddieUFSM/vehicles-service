@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node .",
-    "test": "mocha",
+    "test": "mocha --recursive --require ./mocha-setup.js 'src/**/*.spec.js'",
     "coverage": "npm test -- --coverage",
     "postcoverage": "open-cli coverage/lcov-report/index.html",
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md",
@@ -24,29 +24,37 @@
   ],
   "author": "eduardo da silva rocha",
   "license": "ISC",
+  "test": {
+    "type": "commonjs"
+  },
   "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@babel/register": "^7.23.7",
     "@eslint/js": "^9.2.0",
     "apidoc": "^1.2.0",
     "apidoc-markdown": "^7.0.4",
+    "chai": "^4.4.1",
     "eslint": "^8.57.0",
+    "esm": "^3.2.25",
     "globals": "^15.1.0",
     "mocha": "^10.4.0",
     "open-cli": "^8.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-decorators": "^7.16.7",
     "@babel/plugin-proposal-export-default-from": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/register": "^7.9.0",
     "@babel/runtime": "^7.9.0",
     "body-parser": "^1.19.0",
+    "chai-http": "^4.4.0",
+    "chalk": "^5.3.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv-safe": "^9.1.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.4",
+    "mongoose-express-sanitizer": "^2.0.1",
     "mongoose-keywords": "^0.4.0"
   }
 }
