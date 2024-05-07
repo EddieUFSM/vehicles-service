@@ -15,7 +15,7 @@ export default {
     ip: process.env.IP || '0.0.0.0',
     apiRoot: process.env.API_ROOT || '',
     mongo: {
-      uri: '',
+      uri: process.env.MONGO_URI || 'mongodb://localhost:27017/vehicles',
       options: {
         useUnifiedTopology: true,
         useNewUrlParser: true,

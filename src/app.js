@@ -8,7 +8,7 @@ const app = express(config.apiRoot, api)
 const server = http.createServer(app)
 
 if (config.mongo.uri) {
-  mongoose.connect(mongo.uri)
+  mongoose.connect(config.mongo.uri)
 }
 mongoose.Promise = Promise
 

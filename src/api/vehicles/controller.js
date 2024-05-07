@@ -1,19 +1,30 @@
-export const create = async ({ body, params  }, res) => {
-    return res.send(`this will create the vehicle ${params.id}`)
-}
+import Vehicle from './model'
+import { errorHandler } from '../../services/response'
+
+export const create = ({ body }, res) => 
+    Vehicle.create(body)
+        .then(vehicle => res.json(vehicle))
+        .catch(err => errorHandler(err, res))
     
-export const findOne = async ({ body, params }, res) => {
-    return res.send(`this will show the vehicle ${params.id}`)
-}
+export const findOne = async ({ params }, res) => 
+    Vehicle.findById(params.id)
+        .then(vehicle => res.json(vehicle))
+        .catch(err => errorHandler(err, res))
 
-export const find = async ({ body, params }, res) => {
-    return res.send(`this will show  a list of cars`)
-}
+export const find = async ({query}, res) => 
+    Vehicle.find({}, null, { 
+            skip: parseInt(query.offset) || 0,
+            limit: parseInt(query.limit) || 10
+        })
+        .then(vehicle => res.json(vehicle))
+        .catch(err => errorHandler(err, res))
 
-export const update = async ({ body, params  }, res) => {
-    return res.send(`this will update the vehicle ${params.id}`)
-}
+export const update = async ({ body, params  }, res) => 
+    Vehicle.findOneAndUpdate({ _id: params.id }, body)
+        .then(vehicle => res.json(vehicle))
+        .catch(err => errorHandler(err, res))
 
-export const remove = async ({ body, params  }, res) => {
-    return res.send(`this will delete the vehicle ${params.id}`)
-}
+export const remove = async ({ params  }, res) => 
+    Vehicle.findOneAndRemove({ _id: params.id})
+        .then(vehicle => res.json(vehicle))
+        .catch(err => errorHandler(err, res))

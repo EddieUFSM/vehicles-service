@@ -11,7 +11,7 @@
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md",
     "postdocs": "open-cli docs/index.html",
     "dev": "nodemon -i \"*.test.js\" .",
-    "lint": "eslint src"
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [
     "vehicle",
@@ -22,6 +22,14 @@
   ],
   "author": "eduardo da silva rocha",
   "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "apidoc": "^1.2.0",
+    "apidoc-markdown": "^7.0.4",
+    "eslint": "^8.57.0",
+    "globals": "^15.1.0",
+    "open-cli": "^8.0.0"
+  },
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-decorators": "^7.16.7",
