@@ -6,14 +6,14 @@
   "type": "module",
   "scripts": {
     "start": "node .",
-    "test": "mocha --recursive --require ./mocha-setup.js 'src/**/*.spec.js'",
-    "coverage": "npm test -- --coverage",
-    "postcoverage": "open-cli coverage/lcov-report/index.html",
+    "test": "mocha --recursive --require ./mocha-setup.js 'src/**/*.spec.js' --exit",
     "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md",
     "postdocs": "open-cli docs/index.html",
     "dev": "nodemon -i \"*.test.js\" .",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "pretest": "docker compose up -d db",
+    "posttest": "docker compose stop db && docker-compose rm -f db"
   },
   "keywords": [
     "vehicle",
