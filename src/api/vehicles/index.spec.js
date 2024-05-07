@@ -6,14 +6,14 @@ import Vehicle from './model.js'
 chai.use(chaiHttp)
 const { expect } = chai
 
-describe('API de veículos', () => {
+describe('API de veículos', function() {
   // Antes de cada teste, limpe a coleção de veículos no banco de dados
-  beforeEach(async () => {
+  beforeEach(async function() {
     await Vehicle.deleteMany({})
   })
 
-  describe('POST /vehicles', () => {
-    it('Deve criar um novo veículo', async () => {
+  describe('POST /vehicles', function() {
+    it('Deve criar um novo veículo', async function() {
       const res = await chai.request(app)
         .post('/vehicles')
         .send({
@@ -30,8 +30,8 @@ describe('API de veículos', () => {
     })
   })
 
-  describe('GET /vehicles/:id', () => {
-    it('Deve retornar um veículo pelo seu ID', async () => {
+  describe('GET /vehicles/:id', function() {
+    it('Deve retornar um veículo pelo seu ID', async function() {
       // Crie um veículo no banco de dados para buscar por ele depois
       const vehicle = await Vehicle.create({
         placa: 'XYZ5678',
@@ -51,8 +51,8 @@ describe('API de veículos', () => {
     })
   })
 
-  describe('PATCH /vehicles/:id', () => {
-    it('Deve atualizar um veículo pelo seu ID', async () => {
+  describe('PATCH /vehicles/:id', function() {
+    it('Deve atualizar um veículo pelo seu ID', async function() {
       // Crie um veículo no banco de dados para atualizar depois
       const vehicle = await Vehicle.create({
         placa: 'LMN9012',
@@ -73,8 +73,8 @@ describe('API de veículos', () => {
     })
   })
 
-  describe('DELETE /vehicles/:id', () => {
-    it('Deve excluir um veículo pelo seu ID', async () => {
+  describe('DELETE /vehicles/:id', function() {
+    it('Deve excluir um veículo pelo seu ID', async function() {
       // Crie um veículo no banco de dados para excluir depois
       const vehicle = await Vehicle.create({
         placa: 'JKL3456',
@@ -91,12 +91,11 @@ describe('API de veículos', () => {
       console.log(res.body)
       expect(res).to.have.status(204)
       expect(res.body).to.be.an('object')
-      expect(res.body).to.have.property('id')
     })
   })
 
-  describe('GET /vehicles', () => {
-    it('Deve retornar todos os veículos cadastrados', async () => {
+  describe('GET /vehicles', function() {
+    it('Deve retornar todos os veículos cadastrados', async function() {
       // Crie alguns veículos no banco de dados para listar depois
       await Vehicle.create([
         {

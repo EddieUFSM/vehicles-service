@@ -1,5 +1,6 @@
 import globals from "globals"
 import pluginJs from "@eslint/js"
+import mochaPlugin from 'eslint-plugin-mocha'
 
 export default [
   {
@@ -7,8 +8,9 @@ export default [
     rules: {
       "prefer-const": "error",
       semi: ['error', 'never'],
-      indent: ['error', 2],
+      indent: ['error', 2]
     }
   },
   pluginJs.configs.recommended,
+  mochaPlugin.configs.flat.recommended
 ]

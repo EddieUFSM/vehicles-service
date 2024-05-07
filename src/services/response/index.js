@@ -30,14 +30,14 @@ export const notFound = () => (entity) => {
 export const errorHandler = (err, res) => {
   switch (err.status) {
   case 400:
-      console.log(chalk.red('Error:'), 'Malformed data:', err.message || 'Malformed data')
-      res.status(403).json({
-        status: 403,
-        type: 'malformed_data',
-        message: err.message || 'Malformed Data',
-        ...err,
-      }).end()
-      break
+    console.log(chalk.red('Error:'), 'Malformed data:', err.message || 'Malformed data')
+    res.status(403).json({
+      status: 403,
+      type: 'malformed_data',
+      message: err.message || 'Malformed Data',
+      ...err,
+    }).end()
+    break
   case 403:
     console.log(chalk.red('Error:'), 'Not authorized:', err.message || 'Not authorized')
     res.status(403).json({

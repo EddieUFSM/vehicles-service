@@ -9,9 +9,9 @@ import {
   isValidMap,
   isValidBuffer
 } from './validators.js'
-import chalk from 'chalk';
+import chalk from 'chalk'
 import mongoose from 'mongoose'
-import { errorHandler } from '../response/index.js';
+import { errorHandler } from '../response/index.js'
 
 const middleware = (schema) => {
   return (req, res, next) => {
