@@ -2,7 +2,9 @@
 [![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Mocha](https://img.shields.io/badge/-Mocha-8D6748?style=flat-square&logo=mocha&logoColor=white)](https://mochajs.org/) [![apidoc](https://img.shields.io/badge/-apidoc-000000?style=flat-square&logo=apidoc&logoColor=white)](https://apidocjs.com/)
+[![Mocha](https://img.shields.io/badge/-Mocha-8D6748?style=flat-square&logo=mocha&logoColor=white)](https://mochajs.org/) [![apidoc](https://img.shields.io/badge/-apidoc-000000?style=flat-square&logo=apidoc&logoColor=white)](https://apidocjs.com/)[![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+[![ESLint](https://img.shields.io/badge/-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)](https://eslint.org/)
+
 
 
 
@@ -15,7 +17,9 @@ This project provides a REST API for managing vehicles. It allows users to perfo
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
+- [Contributing](```sh
+```
+#contributing)
 - [License](#license)
 
 ## Introduction
@@ -132,26 +136,58 @@ The following endpoints are available:
 
 POST /vehicles
 Creates a new vehicle with the provided information.
+```sh
+curl -X POST \
+  http://localhost:3000/vehicles \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "placa": "ABC1234",
+    "chassi": "12345678901234567",
+    "renavam": 12345678901,
+    "modelo": "Sedan",
+    "marca": "Toyota",
+    "ano": 2022
+}'
+
+```
 
 ### Delete a vehicle
 
 DELETE /vehicles/:id
 Deletes a vehicle with the specified ID.
+```sh
+curl -X DELETE http://localhost:3000/vehicles/<vehicle_id>
+```
 
 ### Retrieve a single vehicle
 
 GET /vehicles/:id
 Retrieves details of a vehicle with the specified ID.
+```sh
+curl -X GET http://localhost:3000/vehicles/<vehicle_id>
+```
 
 ### Retrieve all vehicles
 
 GET /vehicles
 Retrieves a list of all vehicles.
+```sh
+curl -X GET http://localhost:3000/vehicles
+```
 
 ### Update a vehicle
 
 PATCH /vehicles/:id
 Updates the information of a vehicle with the specified ID.
+```sh
+curl -X PATCH \
+  http://localhost:3000/vehicles/<vehicle_id> \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "placa": "XYZ5678"
+}'
+
+```
 
 ## Contributing
 
