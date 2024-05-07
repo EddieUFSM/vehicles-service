@@ -88,9 +88,6 @@ const validateElementOfSchema = (schemaAttribute, paramReceived) => {
   case 'Timestamp':
     isTimestamp(schemaAttribute, paramReceived)
     break
-  case 'Decimal128':
-    isDecimal128(schemaAttribute, paramReceived)
-    break
   case 'ObjectId':
     isValidObjectId(schemaAttribute, paramReceived)
     break
