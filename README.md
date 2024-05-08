@@ -6,8 +6,6 @@
 [![ESLint](https://img.shields.io/badge/-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)](https://eslint.org/)
 
 
-
-
 This project provides a REST API for managing vehicles. It allows users to perform CRUD (Create, Read, Update, Delete) operations on vehicle data.
 
 ## Table of Contents
@@ -17,9 +15,7 @@ This project provides a REST API for managing vehicles. It allows users to perfo
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
-- [Contributing](```sh
-```
-#contributing)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
@@ -138,7 +134,7 @@ POST /vehicles
 Creates a new vehicle with the provided information.
 ```sh
 curl -X POST \
-  http://localhost:3000/vehicles \
+  http://localhost:8080/vehicles \
   -H 'Content-Type: application/json' \
   -d '{
     "placa": "ABC1234",
@@ -156,7 +152,7 @@ curl -X POST \
 DELETE /vehicles/:id
 Deletes a vehicle with the specified ID.
 ```sh
-curl -X DELETE http://localhost:3000/vehicles/<vehicle_id>
+curl -X DELETE http://localhost:8080/vehicles/<vehicle_id>
 ```
 
 ### Retrieve a single vehicle
@@ -164,7 +160,7 @@ curl -X DELETE http://localhost:3000/vehicles/<vehicle_id>
 GET /vehicles/:id
 Retrieves details of a vehicle with the specified ID.
 ```sh
-curl -X GET http://localhost:3000/vehicles/<vehicle_id>
+curl -X GET http://localhost:8080/vehicles/<vehicle_id>
 ```
 
 ### Retrieve all vehicles
@@ -172,7 +168,7 @@ curl -X GET http://localhost:3000/vehicles/<vehicle_id>
 GET /vehicles
 Retrieves a list of all vehicles.
 ```sh
-curl -X GET http://localhost:3000/vehicles
+curl -X GET http://localhost:8080/vehicles
 ```
 
 ### Update a vehicle
@@ -181,7 +177,7 @@ PATCH /vehicles/:id
 Updates the information of a vehicle with the specified ID.
 ```sh
 curl -X PATCH \
-  http://localhost:3000/vehicles/<vehicle_id> \
+  http://localhost:8080/vehicles/<vehicle_id> \
   -H 'Content-Type: application/json' \
   -d '{
     "placa": "XYZ5678"

@@ -27,7 +27,44 @@ export const notFound = () => (entity) => {
   })
 }
 
+export const mongoError = (res, err) => {
+  switch (err.code) {
+  case 11000:
+    return res.status(409).json({
+      status: 409,
+      type: 'duplicate_key_error',
+      message: err.message,
+      ...err
+    }).end()
+  case 1:
+    return res.status(500).json({
+      status: 500,
+      type: 'internal_error',
+      message: err.message,
+      ...err
+    }).end()
+  case 2:
+    return res.status(500).json({
+      status: 500,
+      type: 'bad_value',
+      message: err.message,
+      ...err
+    }).end()
+  default:
+    return res.status(500).json({
+      status: 500,
+      type: 'unknown_error',
+      message: err.message,
+      ...err
+    }).end()
+  }
+}
+
 export const errorHandler = (err, res) => {
+  if(err.name === 'MongoError') {
+    return mongoError(res, err)
+  }
+  
   switch (err.status) {
   case 400:
     console.log(chalk.red('Error:'), 'Malformed data:', err.message || 'Malformed data')

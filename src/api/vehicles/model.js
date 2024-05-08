@@ -5,7 +5,8 @@ const { Schema } = mongoose
 const vehicleSchema = new Schema({
   placa: {
     type: String,
-    require: true
+    require: true,
+    unique: true
   },
   chassi: {
     type: String,
@@ -13,7 +14,8 @@ const vehicleSchema = new Schema({
   }, 
   renavam: {
     type: Number,
-    require: true
+    require: true,
+    unique: true
   },
   modelo: {
     type: String,
